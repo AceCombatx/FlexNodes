@@ -1,1 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlexNodes Hosting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0e0e11;
+      --text-color: #f0f0f0;
+      --accent: #6f5eff;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
 
+    [data-theme="light"] {
+      --bg-color: #f5f5f5;
+      --text-color: #1a1a1a;
+      --card-bg: rgba(0, 0, 0, 0.05);
+      --glass-border: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: 0.3s;
+    }
+
+    header {
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+      background: linear-gradient(120deg, #6f5eff, #a85eff);
+      color: white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      animation: bounce 1s ease-in-out;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #1a1a1f;
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-color);
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .pricing {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .btn {
+      background-color: var(--accent);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #574fff;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #999;
+    }
+
+    .partners {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .partners img {
+      height: 64px;
+      filter: grayscale(100%);
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+
+    .partners img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+
+    .testimonial {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 1.5rem;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      font-style: italic;
+    }
+
+    .server-status {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header>
+    <h1>FlexNodes Hosting</h1>
+    <p>VPS • Game Servers • Bots • Websites — High Quality Hosting from Frankfurt 🇩🇪</p>
+  </header>
+
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#partners">Partners</a>
+    <a href="#contact">Contact</a>
+    <a class="btn" href="https://discord.gg/sEmKR8UJNz" target="_blank">Join our Discord</a>
+  </nav>
+
+  <div class="container">
+    <section id="features" class="glass-card">
+      <h2>Why FlexNodes?</h2>
+      <ul>
+        <li>Free VPS & Bot Hosting Options</li>
+        <li>Powerful Control Panels: <a href="https://vm.flexnodes.uk">VPS Panel</a> / <a href="https://backend.flexnodes.uk">Game Panel</a></li>
+        <li>Location: Frankfurt, Germany 🇩🇪</li>
+        <li>Payment Methods: Crypto, Easypaisa</li>
+        <li>Custom Specs? Open a ticket via Discord</li>
+      </ul>
+    </section>
+
+    <section id="pricing" class="glass-card">
+      <h2>Our Plans</h2>
+      <div class="pricing">
+        <div><h3>VPS - Starter</h3><p>3v Cores / 6GB RAM / 12GB Disk</p><strong>$3/mo (crypto)</strong></div>
+        <div><h3>Bot - Medium</h3><p>2v Cores / 6GB RAM / 16GB Disk</p><strong>$7/mo (crypto)</strong></div>
+        <div><h3>Website Hosting</h3><p>Flexible plans — open a ticket!</p><strong>From $1/mo</strong></div>
+        <div><h3>VPS - Ultimate</h3><p>8v Cores / 16GB RAM / 30GB Disk</p><strong>$10/mo (crypto)</strong></div>
+      </div>
+      <p>* Add $3 for a dedicated IPv4</p>
+    </section>
+
+    <section id="testimonials" class="glass-card">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonials">
+        <div class="testimonial">"Super reliable hosting and great Discord support!" - @LibertyDev</div>
+        <div class="testimonial">"Best performance for the price! Highly recommend." - @UrbanAdmin</div>
+        <div class="testimonial">"Our bots never go offline thanks to FlexNodes." - @DinoDev</div>
+      </div>
+    </section>
+
+    <section id="partners" class="glass-card">
+      <h2>Trusted By</h2>
+      <div class="partners">
+        <img src="https://via.placeholder.com/150x64?text=FlameMC" alt="FlameMC">
+        <img src="https://via.placeholder.com/150x64?text=Liberty+Design" alt="Liberty Design">
+        <img src="https://via.placeholder.com/150x64?text=Dino+Bot+List" alt="Dino Bot List">
+        <img src="https://via.placeholder.com/150x64?text=UrbanRP" alt="UrbanRP">
+      </div>
+    </section>
+
+    <section class="glass-card server-status">
+      <h2>Live Server Status</h2>
+      <p id="status">Loading...</p>
+    </section>
+
+    <section id="contact" class="glass-card">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <label>Discord Username</label>
+        <input type="text" name="discord" required placeholder="e.g. user#0001">
+        <label>Discord User ID</label>
+        <input type="text" name="userid" required placeholder="e.g. 123456789012345678">
+        <label>Your Message</label>
+        <textarea name="message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <p>Make sure you've joined our Discord: <a href="https://discord.gg/sEmKR8UJNz">Click Here</a></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 FlexNodes Hosting — All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'light' ? '' : 'light';
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const payload = {
+        content: `New Contact Submission:\n**Discord:** ${data.get('discord')}\n**User ID:** ${data.get('userid')}\n**Message:** ${data.get('message')}`
+      };
+      await fetch('https://discord.com/api/webhooks/1363506472092172380/E6KRbQFbFZtJDKjxCopbM7jW7-RmocgbGf1pqemf8nQT_RSh4yiT--029bYwcuL1ioJV', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      alert('Your message has been sent! Join our Discord if you haven’t.');
+      e.target.reset();
+    });
+
+    async function updateServerStatus() {
+      try {
+        document.getElementById('status').textContent = 'All systems online';
+      } catch (err) {
+        document.getElementById('status').textContent = 'Status unavailable';
+      }
+    }
+    updateServerStatus();
+  </script>
+</body>
+</html>
